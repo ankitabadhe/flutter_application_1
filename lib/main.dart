@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'home_page.dart';
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  final int day = 2;
-  final String name = "Ankita";
-
   @override
   Widget build(BuildContext context) {
+    //UI work is in the build,call build to refresh UI
+
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Text("Welcome to $name's $day'nd day Flutter Class"),
-          ),
-        ),
-      ),
+      home: Homepage(),
     );
   }
 }
