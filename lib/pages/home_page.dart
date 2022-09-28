@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-class Homepage extends StatelessWidget {
+class HomePage extends StatelessWidget {
   final int count = 1;
   final String name = "Ankita";
+
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Catalog App"),
+        title: const Text("Catalog App"),
       ),
       body: Center(
-        child: Container(
-          child: Text("$name's $count st Flutter App"), //String interpolation
-        ),
+        child: Text("$name's $count st Flutter App"),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
     );
   }
 }
