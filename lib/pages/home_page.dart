@@ -48,7 +48,9 @@ class _HomePageState extends State<HomePage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       child: GridTile(
-                          child: Image.network(ItemWidget.item.image)));
+                          child: Image.network(ItemWidget.item
+                              .image) //Instance member 'item' can't be accessed using static access.
+                          ));
                 },
                 itemCount: CatModel.items.length)
             : const Center(
