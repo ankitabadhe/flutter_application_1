@@ -42,7 +42,8 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: (CatModel.items.isNotEmpty)
+        // ignore: unnecessary_null_comparison
+        child: (CatModel.items != null && CatModel.items.isNotEmpty)
             ? ListView.builder(
                 itemCount: CatModel.items.length,
                 itemBuilder: (context, index) => ItemWidget(
