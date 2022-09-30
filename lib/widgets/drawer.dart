@@ -12,7 +12,7 @@ class MyDrawer extends StatelessWidget {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReHLSKj3qzIZzrsWLMqFj5qi06SI4OENkpsl2RLjaTbg&s";
     return Drawer(
         child: Container(
-      color: Colors.deepPurple,
+      color: Colors.black,
       child: ListView(padding: EdgeInsets.zero, children: const [
         DrawerHeader(
             padding: EdgeInsets.zero,
@@ -28,10 +28,10 @@ class MyDrawer extends StatelessWidget {
             title: Text("HOME", style: TextStyle(color: Colors.white))),
         ListTile(
             leading: Icon(CupertinoIcons.person, color: Colors.white),
-            title: Text("ABOUT ME", style: TextStyle(color: Colors.white))),
+            title: Text("ABOUT", style: TextStyle(color: Colors.white))),
         ListTile(
             leading: Icon(CupertinoIcons.phone, color: Colors.white),
-            title: Text("CONTACT ME", style: TextStyle(color: Colors.white)))
+            title: Text("CONTACT", style: TextStyle(color: Colors.white)))
       ]),
     ));
   }
