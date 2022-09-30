@@ -1,14 +1,10 @@
-// ignore_for_file: override_on_non_overriding_member
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:flutter/services.dart';
-// import 'dart:convert';
-import '../models/cat.dart';
-import '../widgets/drawer.dart';
-import '../widgets/item_widget.dart';
+import 'package:flutter_application_1/models/cat.dart';
+import 'package:flutter_application_1/widgets/drawer.dart';
+import 'package:flutter_application_1/widgets/itemwidgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -42,14 +38,19 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-        // ignore: unnecessary_null_comparison
-        child: (CatModel.items != null && CatModel.items.isNotEmpty)
-            ? ListView.builder(
-                itemCount: CatModel.items.length,
-                itemBuilder: (context, index) => ItemWidget(
-                  item: CatModel.items[index],
-                ),
-              )
+        child: (CatModel.items.isNotEmpty)
+            ? GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemBuilder: (context, index) {
+                  return Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      child: GridTile(
+                          child: Image.network(ItemWidget.item.image)));
+                },
+                itemCount: CatModel.items.length)
             : const Center(
                 child: CircularProgressIndicator(),
               ),
