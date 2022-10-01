@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/models/cat.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
-import 'package:flutter_application_1/widgets/itemwidgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -41,16 +40,35 @@ class _HomePageState extends State<HomePage> {
         child: (CatModel.items.isNotEmpty)
             ? GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 15,
+                    crossAxisSpacing: 15),
                 itemBuilder: (context, index) {
+                  final item = CatModel.items[index];
                   return Card(
                       clipBehavior: Clip.antiAlias,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       child: GridTile(
-                          child: Image.network(ItemWidget.item
-                              .image) //Instance member 'item' can't be accessed using static access.
-                          ));
+                        header: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration:
+                              const BoxDecoration(color: Colors.deepPurple),
+                          child: Text(
+                            item.name,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        footer: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration:
+                                const BoxDecoration(color: Colors.black),
+                            child: Text(
+                              item.price.toString(),
+                              style: const TextStyle(color: Colors.white),
+                            )),
+                        child: Image.network(item.image),
+                      ));
                 },
                 itemCount: CatModel.items.length)
             : const Center(
