@@ -1,9 +1,14 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/utils/routes.dart';
+import 'package:flutter_application_1/widgets/home_widgets/cat_list.dart';
+import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/models/cat.dart';
-import 'package:flutter_application_1/widgets/drawer.dart';
+import 'package:flutter_application_1/widgets/themes.dart';
+import '../widgets/home_widgets/cat_head.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,50 +37,28 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Catalog App"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: (CatModel.items.isNotEmpty)
-            ? GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 15),
-                itemBuilder: (context, index) {
-                  final item = CatModel.items[index];
-                  return Card(
-                      clipBehavior: Clip.antiAlias,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      child: GridTile(
-                        header: Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration:
-                              const BoxDecoration(color: Colors.deepPurple),
-                          child: Text(
-                            item.name,
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        footer: Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration:
-                                const BoxDecoration(color: Colors.black),
-                            child: Text(
-                              item.price.toString(),
-                              style: const TextStyle(color: Colors.white),
-                            )),
-                        child: Image.network(item.image),
-                      ));
-                },
-                itemCount: CatModel.items.length)
-            : const Center(
-                child: CircularProgressIndicator(),
-              ),
-      ),
-      drawer: const MyDrawer(),
-    );
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, MyRoutes.cartRoute);
+          },
+          backgroundColor: MyTheme.darkBluishColor,
+          child: const Icon(CupertinoIcons.cart),
+        ),
+        backgroundColor: MyTheme.creamColor,
+        body: SafeArea(
+          child: Container(
+            padding: Vx.m32,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const CatHeader(),
+                if (CatModel.items.isNotEmpty)
+                  const CatList().py12().expand()
+                else
+                  const CircularProgressIndicator().centered().py16().expand(),
+              ],
+            ),
+          ),
+        ));
   }
 }

@@ -8,7 +8,7 @@ class Item {
   final int id;
   final String name;
   final String desc;
-  final num price;
+  final String price;
   final String color;
   final String image;
 
@@ -18,7 +18,7 @@ class Item {
     int? id,
     String? name,
     String? desc,
-    num? price,
+    String? price,
     String? color,
     String? image,
   }) {
@@ -48,7 +48,7 @@ class Item {
       map['id'] as int,
       map['name'] as String,
       map['desc'] as String,
-      map['price'] as num,
+      map['price'] as String,
       map['color'] as String,
       map['image'] as String,
     );
