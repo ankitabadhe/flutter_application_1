@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/themes.dart';
+// import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CatHeader extends StatelessWidget {
@@ -10,8 +10,8 @@ class CatHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Catalog App".text.xl5.bold.color(MyTheme.darkBluishColor).make(),
-        "Trending Products".text.xl.make(),
+        "Catalog App".text.color(context.primaryColor).xl5.bold.make(),
+        "Trending Products".text.color(context.primaryColor).xl.make(),
         19.heightBox,
       ],
     );

@@ -7,7 +7,7 @@ import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/widgets/home_widgets/cat_list.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/models/cat.dart';
-import 'package:flutter_application_1/widgets/themes.dart';
+//import 'package:flutter_application_1/widgets/themes.dart';
 import '../widgets/home_widgets/cat_head.dart';
 
 class HomePage extends StatefulWidget {
@@ -41,10 +41,13 @@ class _HomePageState extends State<HomePage> {
           onPressed: () {
             Navigator.pushNamed(context, MyRoutes.cartRoute);
           },
-          backgroundColor: MyTheme.darkBluishColor,
-          child: const Icon(CupertinoIcons.cart),
+          backgroundColor: context.cardColor,
+          child: Icon(
+            CupertinoIcons.cart,
+            color: context.primaryColor,
+          ),
         ),
-        backgroundColor: MyTheme.creamColor,
+        backgroundColor: context.canvasColor,
         body: SafeArea(
           child: Container(
             padding: Vx.m32,

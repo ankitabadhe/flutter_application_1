@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
-import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/models/cat.dart';
 
@@ -17,25 +16,31 @@ class HomeDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
         padding: EdgeInsets.zero,
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
-            alignment: MainAxisAlignment.start,
+            alignment: MainAxisAlignment.spaceEvenly,
             buttonPadding: EdgeInsets.zero,
             children: [
-              cat.price.text.red900.xl.bold.make(),
+              cat.price.text
+                  .color(context.primaryColor)
+                  .xl
+                  .bold
+                  .make()
+                  .pOnly(right: 90.0),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, MyRoutes.cartRoute);
                 },
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(MyTheme.darkBluishColor),
+                        MaterialStateProperty.all(context.canvasColor),
                     shape: MaterialStateProperty.all(const StadiumBorder())),
-                child: "Add to Cart".text.xl.bold.make(),
-              ).w40(context).pOnly(left: 90.0)
+                child:
+                    "Add to Cart".text.bold.color(context.primaryColor).make(),
+              ).w32(context).pOnly(left: 20.0)
             ]).p24(),
       ),
       body: SafeArea(
@@ -52,22 +57,24 @@ class HomeDetailPage extends StatelessWidget {
                 arcType: VxArcType.CONVEY,
                 edge: VxEdge.TOP,
                 child: Container(
-                  color: const Color.fromARGB(255, 255, 255, 255),
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
                       cat.name.text.xl2
-                          .color(MyTheme.darkBluishColor)
+                          .color(context.primaryColor)
                           .bold
                           .make()
                           .p4(),
                       cat.desc.text.center.xl
                           .textStyle(context.captionStyle)
+                          .color(context.primaryColor)
                           .make(),
                       20.heightBox,
                       "The oer not mien my no nothing door lonely on, the that sent it whom and some as eagerly. Above.Soul back see into never one that and, late some burning all that till fact whispered ungainly, with shadow entrance."
                           .text
                           .center
+                          .color(context.primaryColor)
                           .textStyle(context.captionStyle)
                           .make()
                     ],

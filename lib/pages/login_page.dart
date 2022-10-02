@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../utils/routes.dart';
 
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
         child: SingleChildScrollView(
             child: Form(
           key: _formKey,
@@ -43,15 +44,27 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20.0),
             Text('WELL-COME  $name',
-                style:
-                    const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: context.primaryColor,
+                )),
             const SizedBox(height: 10.0),
             Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(children: [
                   TextFormField(
-                    decoration: const InputDecoration(
-                        hintText: "Enter Username", labelText: "Username"),
+                    style: TextStyle(color: context.primaryColor),
+                    decoration: InputDecoration(
+                        hintText: "Enter Username",
+                        labelText: "Username",
+                        labelStyle: TextStyle(color: context.primaryColor),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: context.primaryColor),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: context.primaryColor))),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Username cannot be empty !";
@@ -65,12 +78,20 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() {});
                     },
                   ),
+                  const SizedBox(height: 10.0),
                   TextFormField(
+                    style: TextStyle(color: context.primaryColor),
                     obscureText: true,
-                    decoration: const InputDecoration(
-                      hintText: "Enter Password",
-                      labelText: "Password",
-                    ),
+                    decoration: InputDecoration(
+                        hintText: "Enter Password",
+                        labelStyle: TextStyle(color: context.primaryColor),
+                        labelText: "Password",
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: context.primaryColor),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: context.primaryColor))),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Password cannot be empty !";
@@ -82,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 40.0),
                   Material(
-                    color: Colors.deepPurple,
+                    color: context.cardColor,
                     // shape:
                     //     changeButton ? BoxShape.circle : BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(changeButton ? 6 : 8),
@@ -94,10 +115,10 @@ class _LoginPageState extends State<LoginPage> {
                           alignment: Alignment.center,
                           duration: const Duration(seconds: 1),
                           child: changeButton
-                              ? const Icon(Icons.done, color: Colors.white)
-                              : const Text("LOG-IN",
+                              ? Icon(Icons.done, color: context.primaryColor)
+                              : Text("LOG-IN",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: context.primaryColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 15))),
                     ),

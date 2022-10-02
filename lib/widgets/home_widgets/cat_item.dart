@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/widgets/home_widgets/cat_img.dart';
-import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/models/cat.dart';
 
@@ -24,10 +23,13 @@ class CatItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          cat.name.text.xl.color(MyTheme.darkBluishColor).bold.make(),
-          cat.desc.text.textStyle(context.captionStyle).make(),
-          cat.price.text.bold.make(),
-          20.heightBox,
+          cat.name.text.color(context.primaryColor).xl.bold.make(),
+          cat.desc.text
+              .color(context.primaryColor)
+              .textStyle(context.captionStyle)
+              .make(),
+          cat.price.text.color(context.primaryColor).bold.make(),
+          10.heightBox,
           ButtonBar(
             alignment: MainAxisAlignment.spaceEvenly,
             buttonPadding: EdgeInsets.zero,
@@ -38,14 +40,15 @@ class CatItem extends StatelessWidget {
                 },
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(MyTheme.darkBluishColor),
+                        MaterialStateProperty.all(context.canvasColor),
                     shape: MaterialStateProperty.all(const StadiumBorder())),
-                child: "Add To Cart".text.bold.make(),
+                child:
+                    "Add To Cart".text.color(context.primaryColor).bold.make(),
               ),
             ],
           ).pOnly(left: 30.0)
         ],
       ))
-    ])).white.roundedSM.square(150).make().py12();
+    ])).color(context.cardColor).roundedSM.square(150).make().py12();
   }
 }

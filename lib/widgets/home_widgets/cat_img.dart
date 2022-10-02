@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CatImg extends StatelessWidget {
@@ -11,7 +10,7 @@ class CatImg extends StatelessWidget {
         .box
         .roundedSM
         .p12
-        .color(MyTheme.creamColor)
+        .color(context.canvasColor)
         .make()
         .p12()
         .w40(context);
