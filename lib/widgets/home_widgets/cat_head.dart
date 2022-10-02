@@ -11,7 +11,8 @@ class CatHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         "Catalog App".text.xl5.bold.color(MyTheme.darkBluishColor).make(),
-        "Trending Products".text.xl.make().py(20)
+        "Trending Products".text.xl.make(),
+        19.heightBox,
       ],
     );
   }

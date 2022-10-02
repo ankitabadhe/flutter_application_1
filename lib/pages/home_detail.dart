@@ -19,12 +19,13 @@ class HomeDetailPage extends StatelessWidget {
       ),
       backgroundColor: MyTheme.creamColor,
       bottomNavigationBar: Container(
+        padding: EdgeInsets.zero,
         color: Colors.white,
         child: ButtonBar(
-            alignment: MainAxisAlignment.spaceBetween,
+            alignment: MainAxisAlignment.start,
             buttonPadding: EdgeInsets.zero,
             children: [
-              cat.price.text.xl.red700.bold.make(),
+              cat.price.text.red900.xl.bold.make(),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, MyRoutes.cartRoute);
@@ -33,9 +34,9 @@ class HomeDetailPage extends StatelessWidget {
                     backgroundColor:
                         MaterialStateProperty.all(MyTheme.darkBluishColor),
                     shape: MaterialStateProperty.all(const StadiumBorder())),
-                child: "Add to Cart".text.xl.make(),
-              ).w40(context)
-            ]).p32(),
+                child: "Add to Cart".text.xl.bold.make(),
+              ).w40(context).pOnly(left: 90.0)
+            ]).p24(),
       ),
       body: SafeArea(
         bottom: false,
@@ -58,11 +59,15 @@ class HomeDetailPage extends StatelessWidget {
                       cat.name.text.xl2
                           .color(MyTheme.darkBluishColor)
                           .bold
+                          .make()
+                          .p4(),
+                      cat.desc.text.center.xl
+                          .textStyle(context.captionStyle)
                           .make(),
-                      cat.desc.text.xl.textStyle(context.captionStyle).make(),
-                      30.heightBox,
+                      20.heightBox,
                       "The oer not mien my no nothing door lonely on, the that sent it whom and some as eagerly. Above.Soul back see into never one that and, late some burning all that till fact whispered ungainly, with shadow entrance."
                           .text
+                          .center
                           .textStyle(context.captionStyle)
                           .make()
                     ],

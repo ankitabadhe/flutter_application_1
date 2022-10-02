@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/widgets/home_widgets/cat_img.dart';
 import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -21,26 +22,28 @@ class CatItem extends StatelessWidget {
       Expanded(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           cat.name.text.xl.color(MyTheme.darkBluishColor).bold.make(),
           cat.desc.text.textStyle(context.captionStyle).make(),
-          10.heightBox,
+          cat.price.text.bold.make(),
+          20.heightBox,
           ButtonBar(
-            alignment: MainAxisAlignment.spaceBetween,
+            alignment: MainAxisAlignment.spaceEvenly,
             buttonPadding: EdgeInsets.zero,
             children: [
-              cat.price.text.xl.bold.make(),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.cartRoute);
+                },
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(MyTheme.darkBluishColor),
                     shape: MaterialStateProperty.all(const StadiumBorder())),
-                child: "BUY".text.make(),
+                child: "Add To Cart".text.bold.make(),
               ),
             ],
-          ).pOnly(right: 9.0)
+          ).pOnly(left: 30.0)
         ],
       ))
     ])).white.roundedSM.square(150).make().py12();
