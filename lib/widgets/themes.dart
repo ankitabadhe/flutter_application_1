@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -9,9 +10,15 @@ class MyTheme {
         canvasColor: creamColor,
         backgroundColor: buttonBluishColor,
         primaryColor: Colors.black,
+        brightness: Brightness.light,
         fontFamily: GoogleFonts.poppins().fontFamily,
         appBarTheme: const AppBarTheme(
-          color: Colors.white,
+          systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Color.fromARGB(255, 216, 216, 216),
+              statusBarIconBrightness: Brightness.dark,
+              systemNavigationBarColor: Color.fromARGB(255, 216, 216, 216),
+              systemNavigationBarIconBrightness: Brightness.dark),
+          // color: Colors.white,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.black),
         ),
@@ -26,7 +33,12 @@ class MyTheme {
       primaryColor: Colors.white,
       canvasColor: darkBluishColor,
       appBarTheme: const AppBarTheme(
-        color: Colors.black,
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Vx.gray700,
+            statusBarIconBrightness: Brightness.light,
+            systemNavigationBarColor: Vx.gray700,
+            systemNavigationBarIconBrightness: Brightness.light),
+        // color: Colors.black,
         elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.white),
       ));

@@ -14,7 +14,7 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: context.canvasColor,
       ),
       backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(

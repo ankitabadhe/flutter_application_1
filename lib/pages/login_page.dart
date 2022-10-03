@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Material(
-        color: context.cardColor,
+        color: context.canvasColor,
         child: SingleChildScrollView(
             child: Form(
           key: _formKey,

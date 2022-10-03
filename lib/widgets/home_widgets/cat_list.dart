@@ -12,7 +12,7 @@ class CatList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatModel.items.length,
       itemBuilder: (context, index) {
-        final cat = CatModel.items[index];
+        final cat = CatModel.getByPosition(index);
         return InkWell(
             onTap: () => Navigator.push(
                 context,
