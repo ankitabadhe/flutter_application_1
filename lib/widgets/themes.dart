@@ -4,7 +4,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
-        cardColor: Colors.white,
+        cardColor: darkCreamColor,
         hintColor: Colors.black,
         canvasColor: creamColor,
         backgroundColor: buttonBluishColor,
@@ -33,8 +33,8 @@ class MyTheme {
 
   //Colors
 
-  static Color creamColor = const Color.fromARGB(255, 221, 221, 221);
-  static Color darkCreamColor = Vx.gray900;
+  static Color creamColor = const Color.fromARGB(255, 216, 216, 216);
+  static Color darkCreamColor = const Color.fromARGB(255, 255, 255, 255);
   static Color darkBluishColor = Vx.gray700;
   static Color lightBluishColor = const Color.fromARGB(255, 18, 18, 18);
   static Color buttonBluishColor = const Color.fromARGB(255, 24, 13, 183);
