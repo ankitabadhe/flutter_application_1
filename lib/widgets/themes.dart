@@ -7,6 +7,7 @@ class MyTheme {
         cardColor: Colors.white,
         hintColor: Colors.black,
         canvasColor: creamColor,
+        backgroundColor: buttonBluishColor,
         primaryColor: Colors.black,
         fontFamily: GoogleFonts.poppins().fontFamily,
         appBarTheme: const AppBarTheme(
@@ -20,8 +21,10 @@ class MyTheme {
       fontFamily: GoogleFonts.poppins().fontFamily,
       hintColor: Colors.white,
       cardColor: lightBluishColor,
+      brightness: Brightness.dark,
+      backgroundColor: buttonBluishColor,
       primaryColor: Colors.white,
-      canvasColor: darkCreamColor,
+      canvasColor: darkBluishColor,
       appBarTheme: const AppBarTheme(
         color: Colors.black,
         elevation: 0.0,
@@ -32,6 +35,9 @@ class MyTheme {
 
   static Color creamColor = const Color.fromARGB(255, 221, 221, 221);
   static Color darkCreamColor = Vx.gray900;
-  static Color darkBluishColor = const Color.fromARGB(255, 85, 81, 105);
-  static Color lightBluishColor = const Color.fromARGB(184, 27, 57, 102);
+  static Color darkBluishColor = Vx.gray700;
+  static Color lightBluishColor = const Color.fromARGB(255, 18, 18, 18);
+  static Color buttonBluishColor = const Color.fromARGB(255, 24, 13, 183);
+  // static Color pWhiteColor = const Color.fromARGB(255, 255, 255, 255);
+  // static Color sWhiteColor = const Color.fromARGB(255, 179, 179, 179);
 }

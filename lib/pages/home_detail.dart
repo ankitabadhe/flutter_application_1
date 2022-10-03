@@ -36,11 +36,10 @@ class HomeDetailPage extends StatelessWidget {
                 },
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(context.canvasColor),
+                        MaterialStateProperty.all(context.backgroundColor),
                     shape: MaterialStateProperty.all(const StadiumBorder())),
-                child:
-                    "Add to Cart".text.bold.color(context.primaryColor).make(),
-              ).w32(context).pOnly(left: 20.0)
+                child: "Add to Cart".text.bold.color(Colors.white).make(),
+              ).pOnly(left: 20.0)
             ]).p24(),
       ),
       body: SafeArea(

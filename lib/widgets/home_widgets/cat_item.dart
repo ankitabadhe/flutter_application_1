@@ -40,10 +40,9 @@ class CatItem extends StatelessWidget {
                 },
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(context.canvasColor),
+                        MaterialStateProperty.all(context.backgroundColor),
                     shape: MaterialStateProperty.all(const StadiumBorder())),
-                child:
-                    "Add To Cart".text.color(context.primaryColor).bold.make(),
+                child: "Add To Cart".text.color(Colors.white).bold.make(),
               ),
             ],
           ).pOnly(left: 30.0)

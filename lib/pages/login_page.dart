@@ -32,14 +32,17 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Material(
-        color: context.canvasColor,
+        color: context.cardColor,
         child: SingleChildScrollView(
             child: Form(
           key: _formKey,
           child: Column(children: [
             Image.asset(
-              "assets/images/hey.png",
+              isDarkMode
+                  ? "assets/images/login_dark.png"
+                  : "assets/images/login_img.png",
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 20.0),
@@ -103,24 +106,24 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 40.0),
                   Material(
-                    color: context.cardColor,
+                    color: context.backgroundColor,
                     // shape:
                     //     changeButton ? BoxShape.circle : BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(changeButton ? 6 : 8),
                     child: InkWell(
                       onTap: () => moveToHome(context),
                       child: AnimatedContainer(
-                          height: 50,
+                          height: 40,
                           width: changeButton ? 50 : 100,
                           alignment: Alignment.center,
                           duration: const Duration(seconds: 1),
                           child: changeButton
-                              ? Icon(Icons.done, color: context.primaryColor)
-                              : Text("LOG-IN",
+                              ? const Icon(Icons.done, color: Colors.white)
+                              : const Text("LOG-IN",
                                   style: TextStyle(
-                                      color: context.primaryColor,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 15))),
+                                      fontSize: 19))),
                     ),
                   )
                   // ElevatedButton(
