@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
             Image.asset(
               isDarkMode
                   ? "assets/images/login_dark.png"
-                  : "assets/images/login_img.png",
+                  : "assets/images/login_light.png",
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 20.0),
