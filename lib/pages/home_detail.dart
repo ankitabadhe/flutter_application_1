@@ -1,6 +1,9 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utils/routes.dart';
+import 'package:flutter_application_1/widgets/home_widgets/add_to_cart.dart';
 import 'package:velocity_x/velocity_x.dart';
+
 import 'package:flutter_application_1/models/cat.dart';
 
 class HomeDetailPage extends StatelessWidget {
@@ -24,22 +27,14 @@ class HomeDetailPage extends StatelessWidget {
             alignment: MainAxisAlignment.spaceEvenly,
             buttonPadding: EdgeInsets.zero,
             children: [
-              cat.price.text
+              "\$${cat.price}"
+                  .text
                   .color(context.primaryColor)
                   .xl
                   .bold
                   .make()
                   .pOnly(right: 90.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, MyRoutes.cartRoute);
-                },
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(context.backgroundColor),
-                    shape: MaterialStateProperty.all(const StadiumBorder())),
-                child: "Add to Cart".text.bold.color(Colors.white).make(),
-              ).pOnly(left: 20.0)
+              AddToCart(cat: cat).pOnly(left: 20.0)
             ]).p24(),
       ),
       body: SafeArea(

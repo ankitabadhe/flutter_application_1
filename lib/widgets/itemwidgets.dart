@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 import '../models/cat.dart';
@@ -15,7 +17,6 @@ class ItemWidget extends StatelessWidget {
       child: ListTile(
         // horizontalTitleGap: 30,
         onTap: () {
-          // ignore: avoid_print
           print("${item.name} pressed");
         },
         leading: Image.network(item.image, width: 60),

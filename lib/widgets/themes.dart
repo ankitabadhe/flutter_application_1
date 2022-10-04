@@ -25,31 +25,34 @@ class MyTheme {
       );
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
-      fontFamily: GoogleFonts.poppins().fontFamily,
-      hintColor: Colors.white,
-      cardColor: lightBluishColor,
-      brightness: Brightness.dark,
-      backgroundColor: buttonBluishColor,
-      primaryColor: Colors.white,
-      canvasColor: darkBluishColor,
-      appBarTheme: const AppBarTheme(
-        systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Vx.gray700,
-            statusBarIconBrightness: Brightness.light,
-            systemNavigationBarColor: Vx.gray700,
-            systemNavigationBarIconBrightness: Brightness.light),
-        // color: Colors.black,
-        elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.white),
-      ));
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        hintColor: Colors.white,
+        cardColor: lightBluishColor,
+        brightness: Brightness.dark,
+        backgroundColor: buttonBluishColor,
+        dividerColor: Colors.black,
+        primaryColor: Colors.white,
+        canvasColor: darkBluishColor,
+        appBarTheme: const AppBarTheme(
+          systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Vx.gray700,
+              statusBarIconBrightness: Brightness.light,
+              systemNavigationBarColor: Vx.gray700,
+              systemNavigationBarIconBrightness: Brightness.light),
+          // color: Colors.black,
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
+      );
 
   //Colors
 
-  static Color creamColor = const Color.fromARGB(255, 216, 216, 216);
+  static Color creamColor = const Color.fromARGB(255, 247, 244, 244);
   static Color darkCreamColor = const Color.fromARGB(255, 255, 255, 255);
-  static Color darkBluishColor = Vx.gray700;
-  static Color lightBluishColor = const Color.fromARGB(255, 18, 18, 18);
+  static Color darkBluishColor = const Color.fromARGB(255, 14, 13, 13);
+  static Color lightBluishColor = const Color.fromARGB(255, 0, 0, 0);
   static Color buttonBluishColor = const Color.fromARGB(255, 24, 13, 183);
+  static Color buttonGrayColor = const Color.fromARGB(255, 12, 6, 6);
   // static Color pWhiteColor = const Color.fromARGB(255, 255, 255, 255);
   // static Color sWhiteColor = const Color.fromARGB(255, 179, 179, 179);
 }

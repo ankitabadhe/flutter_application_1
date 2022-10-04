@@ -39,6 +39,9 @@ dependencies:
 
   google_fonts: ^3.0.1
 
+
+  http : ^0.13.5
+
   velocity_x : ^3.5.1
 
 dev_dependencies:

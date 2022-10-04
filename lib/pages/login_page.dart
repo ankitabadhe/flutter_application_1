@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(children: [
             Image.asset(
               isDarkMode
-                  ? "assets/images/login_dark.png"
+                  ? "assets/images/login_light.png"
                   : "assets/images/login_light.png",
               fit: BoxFit.cover,
             ),

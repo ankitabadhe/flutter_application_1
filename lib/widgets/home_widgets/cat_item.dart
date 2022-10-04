@@ -1,5 +1,8 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utils/routes.dart';
+import 'package:flutter_application_1/pages/home_detail.dart';
+import 'package:flutter_application_1/widgets/home_widgets/add_to_cart.dart';
 import 'package:flutter_application_1/widgets/home_widgets/cat_img.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/models/cat.dart';
@@ -28,23 +31,12 @@ class CatItem extends StatelessWidget {
               .color(context.primaryColor)
               .textStyle(context.captionStyle)
               .make(),
-          cat.price.text.color(context.primaryColor).bold.make(),
+          "\$${cat.price}".text.color(context.primaryColor).bold.make(),
           10.heightBox,
           ButtonBar(
             alignment: MainAxisAlignment.spaceEvenly,
             buttonPadding: EdgeInsets.zero,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, MyRoutes.cartRoute);
-                },
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(context.backgroundColor),
-                    shape: MaterialStateProperty.all(const StadiumBorder())),
-                child: "Add To Cart".text.color(Colors.white).bold.make(),
-              ),
-            ],
+            children: [AddToCart(cat: cat)],
           ).pOnly(left: 30.0)
         ],
       ))

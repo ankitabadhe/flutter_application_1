@@ -1,12 +1,16 @@
+// ignore_for_file: null_closures
+
 import 'dart:convert';
 
 class CatModel {
+  // static final catModel = CatModel._internal();
+  // CatModel._internal();
+  // factory CatModel() => catModel;
+
   static List<Item> items = [];
 
 // Get Item by
   static Item getById(int id) =>
-
-      // ignore: null_closures
       items.firstWhere((element) => element.id == id, orElse: null);
 
   // Get Item by position
@@ -17,27 +21,33 @@ class Item {
   final int id;
   final String name;
   final String desc;
-  final String price;
+  final num price;
   final String color;
   final String image;
-
-  Item(this.id, this.name, this.desc, this.price, this.color, this.image);
+  Item({
+    required this.id,
+    required this.name,
+    required this.desc,
+    required this.price,
+    required this.color,
+    required this.image,
+  });
 
   Item copyWith({
     int? id,
     String? name,
     String? desc,
-    String? price,
+    num? price,
     String? color,
     String? image,
   }) {
     return Item(
-      id ?? this.id,
-      name ?? this.name,
-      desc ?? this.desc,
-      price ?? this.price,
-      color ?? this.color,
-      image ?? this.image,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      desc: desc ?? this.desc,
+      price: price ?? this.price,
+      color: color ?? this.color,
+      image: image ?? this.image,
     );
   }
 
@@ -54,12 +64,12 @@ class Item {
 
   factory Item.fromMap(Map<String, dynamic> map) {
     return Item(
-      map['id'] as int,
-      map['name'] as String,
-      map['desc'] as String,
-      map['price'] as String,
-      map['color'] as String,
-      map['image'] as String,
+      id: map['id'] as int,
+      name: map['name'] as String,
+      desc: map['desc'] as String,
+      price: map['price'] as num,
+      color: map['color'] as String,
+      image: map['image'] as String,
     );
   }
 
