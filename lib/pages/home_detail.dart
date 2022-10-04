@@ -1,5 +1,3 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/home_widgets/add_to_cart.dart';
 import 'package:velocity_x/velocity_x.dart';

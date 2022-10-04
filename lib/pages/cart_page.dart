@@ -1,5 +1,3 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/store.dart';
 import 'package:flutter_application_1/models/cart.dart';
@@ -32,18 +30,14 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CartModel _cart = (VxState.store as MyStore).cart;
-    return
-        // SizedBox(
-        //   height: 80,
-        //   child:
-        Row(
+    final CartModel cart = (VxState.store as MyStore).cart;
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         VxConsumer(
             notifications: const {},
             builder: (context, _, __) {
-              return "\$${_cart.totalPrice}"
+              return "\$${cart.totalPrice}"
                   .text
                   .xl
                   .bold
@@ -51,7 +45,6 @@ class _CartTotal extends StatelessWidget {
                   .make();
             },
             mutations: const {RemoveMutation}),
-        // 30.widthBox,
         TextButton(
           onPressed: () {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -72,9 +65,9 @@ class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     VxState.watch(context, on: [RemoveMutation]);
-    final CartModel _cart = (VxState.store as MyStore).cart;
+    final CartModel cart = (VxState.store as MyStore).cart;
 
-    return _cart.items.isEmpty
+    return cart.items.isEmpty
         ? "Nothing to show here !"
             .text
             .color(context.primaryColor)
@@ -82,7 +75,7 @@ class _CartList extends StatelessWidget {
             .bold
             .makeCentered()
         : ListView.builder(
-            itemCount: _cart.items.length,
+            itemCount: cart.items.length,
             itemBuilder: ((context, index) => ListTile(
                   tileColor: context.cardColor,
                   leading: Icon(
@@ -91,12 +84,11 @@ class _CartList extends StatelessWidget {
                   ),
                   trailing: IconButton(
                       onPressed: () {
-                        RemoveMutation(_cart.items[index]);
-                        // setState(() {});
+                        RemoveMutation(cart.items[index]);
                       },
                       icon: Icon(Icons.remove_circle_outline,
                           color: context.primaryColor)),
-                  title: _cart.items[index].name.text
+                  title: cart.items[index].name.text
                       .color(context.primaryColor)
                       .bold
                       .make(),

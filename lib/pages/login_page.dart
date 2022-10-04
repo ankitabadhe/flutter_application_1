@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
       });
 
       await Future.delayed(const Duration(seconds: 1));
+
       // ignore: use_build_context_synchronously
       await Navigator.pushNamed(context, MyRoutes.homeRoute);
       setState(() {
@@ -32,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Material(
         color: context.canvasColor,
         child: SingleChildScrollView(
@@ -40,9 +40,7 @@ class _LoginPageState extends State<LoginPage> {
           key: _formKey,
           child: Column(children: [
             Image.asset(
-              isDarkMode
-                  ? "assets/images/login_light.png"
-                  : "assets/images/login_light.png",
+              "assets/images/login_light.png",
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 20.0),

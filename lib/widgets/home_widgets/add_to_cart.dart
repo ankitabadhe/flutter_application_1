@@ -1,5 +1,3 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/store.dart';
@@ -17,9 +15,9 @@ class AddToCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     VxState.watch(context, on: [AddMutation, RemoveMutation]);
-    final CartModel _cart = (VxState.store as MyStore).cart;
+    final CartModel cart = (VxState.store as MyStore).cart;
 
-    bool isInCart = _cart.items.contains(cat);
+    bool isInCart = cart.items.contains(cat);
     return ElevatedButton(
       onPressed: () {
         if (!isInCart) {

@@ -1,17 +1,11 @@
-// ignore_for_file: null_closures
-
 import 'dart:convert';
 
 class CatModel {
-  // static final catModel = CatModel._internal();
-  // CatModel._internal();
-  // factory CatModel() => catModel;
-
   static List<Item> items = [];
 
 // Get Item by
   static Item getById(int id) =>
-      items.firstWhere((element) => element.id == id, orElse: null);
+      items.firstWhere((element) => element.id == id);
 
   // Get Item by position
   static Item getByPosition(int pos) => items[pos];

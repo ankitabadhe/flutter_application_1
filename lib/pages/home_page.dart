@@ -1,5 +1,3 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
@@ -47,7 +45,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final _cart = (VxState.store as MyStore).cart;
+    final cart = (VxState.store as MyStore).cart;
     return Scaffold(
         floatingActionButton: VxBuilder(
             mutations: const {AddMutation, RemoveMutation},
@@ -64,7 +62,7 @@ class _HomePageState extends State<HomePage> {
               ).badge(
                   color: Colors.white,
                   size: 23,
-                  count: _cart.items.length,
+                  count: cart.items.length,
                   textStyle: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold));
             }),
